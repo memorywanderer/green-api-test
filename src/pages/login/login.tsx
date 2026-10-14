@@ -28,7 +28,7 @@ const LoginPage = () => {
     return (
         <Flex className="login" align="center" justify="center">
             <Flex className="login__container" direction="column" gap={8}>
-                <h1>Login</h1>
+                <h1>Авторизация</h1>
                 <Input
                     className="w-full"
                     name="idInstance"
@@ -39,6 +39,7 @@ const LoginPage = () => {
                     className="w-full"
                     name="apiTokenInstance"
                     label="API token instance"
+                    type="password"
                     onChange={handleStateChange}
                 />
                 <Button
@@ -50,7 +51,7 @@ const LoginPage = () => {
                         !formState.idInstance.length
                     }
                 >
-                    Sign in
+                    Войти
                 </Button>
             </Flex>
         </Flex>
