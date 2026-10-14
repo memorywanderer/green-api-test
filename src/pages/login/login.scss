@@ -1,0 +1,14 @@
+.login {
+    height: 100vh;
+
+    &__container {
+        width: 500px;
+        padding: 16px;
+        border-radius: 16px;
+        border: 1px solid var(--divider-secondary);
+
+        & input {
+            background-color: var(--background-tertiary);
+        }
+    }
+}

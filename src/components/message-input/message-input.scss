@@ -1,0 +1,13 @@
+.message-input {
+    position: relative;
+    height: 48px;
+    margin: 16px;
+    width: calc(100% - 32px);
+   
+    &__send-btn {
+        position: absolute;
+        bottom: 50%;
+        right: 6px;
+        transform: translateY(50%);
+    }
+}

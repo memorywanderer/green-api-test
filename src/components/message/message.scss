@@ -1,0 +1,33 @@
+.message {
+    border-radius: 16px;
+    width: min-content;
+    max-width: 100%;
+    transition: border-radius 0.2s ease-in;
+    overflow: hidden;
+    color: var(--text-primary);
+    padding: 4px 8px;
+    height: 38px;
+    align-self: start;
+
+    &__inner {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 16px;
+    }
+
+    &--incoming {
+        background-color: var(--background-bubble);
+    }
+
+    &--outgoing {
+        align-self: flex-end;
+        background: linear-gradient(
+            239deg,
+            var(--background-bubble-gradient-step-1) 0%,
+            var(--background-bubble-gradient-step-2) 50%,
+            var(--background-bubble-gradient-step-3) 100%
+        );
+    }
+}

@@ -1,0 +1,19 @@
+.sidebar {
+    flex-direction: column;
+    min-width: 86px;
+    max-width: 400px;
+    height: 100%;
+    display: flex;
+    position: relative;
+    border-right: 1px solid var(--divider-secondary);
+
+    &__header {
+        height: 64px;
+        padding: 4px 16px;
+
+        & span {
+            font-size: 24px;
+            font-weight: 600;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.sidebar-item {
+    height: 82px;
+    padding: 8px;
+
+    &:hover {
+        background-color: var(--background-tertiary);
+    }
+
+    &--active {
+        background-color: var(--background-tertiary);
+    }
+
+    & span {
+        text-align: left;
+        text-overflow: ellipsis;
+    }
+}

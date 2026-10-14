@@ -1,0 +1,7 @@
+.new-chat {
+    padding: 16px;
+
+    &__error {
+        color: var(--error);
+    }
+}

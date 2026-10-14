@@ -1,0 +1,35 @@
+.button {
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+
+    &:disabled {
+        background-color: #727272;
+        color: #3f3f3f;
+    }
+
+    &--primary {
+        background-color: var(--button-primary);
+    }
+
+    &--secondary {
+        background-color: var(--background-secondary);
+    }
+
+    &--default {
+        min-width: 56px;
+        height: 56px;
+        padding: 8px 16px;
+        border-radius: 16px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    &--icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 9999px;
+    }
+}
