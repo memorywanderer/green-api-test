@@ -35,15 +35,19 @@ export const createAuthSlice: StateCreator<
 > = (set) => ({
     ...initialState(),
     checkCookies() {
+        const idInstance = cookie.get(idInstanceKey);
+        const apiTokenInstance = cookie.get(apiTokenInstanceKey);
         const hasTokens = Boolean(
             cookie.get(idInstanceKey) && cookie.get(apiTokenInstanceKey)
         );
-        console.log(
-            "cookie.get(idInstanceKey)",
-            cookie.get(idInstanceKey),
-            cookie.get(apiTokenInstanceKey)
-        );
-        set({ authState: hasTokens ? "authenticated" : "unauthenticated" });
+
+        set((s) => {
+            ((s.authState = hasTokens ? "authenticated" : "unauthenticated"),
+                (s.credentials =
+                    idInstance && apiTokenInstance
+                        ? { idInstance, apiTokenInstance }
+                        : null));
+        });
     },
     signIn(credentials) {
         cookie.set(idInstanceKey, credentials.idInstance);

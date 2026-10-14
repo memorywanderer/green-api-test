@@ -115,7 +115,7 @@ export const createChatsSlice: StateCreator<
                 chatId
             ) {
                 set((state) => {
-                    const messageId = crypto.randomUUID();
+                    const messageId = notificationBody.idMessage;
                     state.messages[messageId] = {
                         id: messageId,
                         direction: "incoming",
