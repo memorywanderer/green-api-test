@@ -29,19 +29,34 @@ const ChatsPage = () => {
 
     useEffect(() => {
         const controller = new AbortController();
+        let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
-        const id = setInterval(async () => {
+        const poll = async () => {
+            if (controller.signal.aborted) return;
+
             try {
                 await receiveNotification(controller.signal);
             } catch (error) {
                 if (controller.signal.aborted) return;
 
-                await new Promise((resolve) => setTimeout(resolve, 2000));
+                console.error("Polling error", error);
+            } finally {
+                if (!controller.signal.aborted) {
+                    timeoutId = setTimeout(poll, 5000);
+                }
             }
-        }, 5000);
+        };
 
-        return () => clearInterval(id);
-    }, []);
+        void poll();
+
+        return () => {
+            controller.abort();
+
+            if (timeoutId !== undefined) {
+                clearTimeout(timeoutId);
+            }
+        };
+    }, [receiveNotification]);
 
     return (
         <div className="chats">
